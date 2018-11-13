@@ -145,14 +145,22 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
         Player player = response.getObject().get(0).getPlayer();
         containerManagerLayout.setVisibility(View.VISIBLE);
 
+        //Image
         GlideUtil.initGlide(activity, player.getImg(), soccerImg);
 
+        //text
+        soccerName.setText(player.getName());
+        soccerCountry.setText(player.getCountry());
+        soccerPosition.setText(player.getPos());
+        soccerPoints.setText(String.valueOf(player.getPercentual()));
 
-//        soccerRatingWinner.setMax(player.getBarras().getCopasDoMundoVencidas().getMax());
-//        soccerRatingWinner.setRating(player.getBarras().getCopasDoMundoVencidas().getPla());
-
+        soccerRatingWinner.setMax(player.getBarras().getCopasDoMundoVencidas().getMax().intValue());
+        soccerRatingWinner.setRating(player.getBarras().getCopasDoMundoVencidas().getPla().floatValue());
+        soccerRatingWinnerPosition.setText(player.getBarras().getCopasDoMundoVencidas().getPos()+"°");
+//
 //        soccerRatingDisputed.setMax(player.getBarras().getCopasDoMundoDisputadas().getMax());
 //        soccerRatingDisputed.setRating(player.getBarras().getCopasDoMundoDisputadas().getPla());
+//        soccerRatingDisputedPosition.setText(player.getBarras().getCopasDoMundoDisputadas().getPos()+"°");
 
     }
 
