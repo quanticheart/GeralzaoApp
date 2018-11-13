@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Geralzao APP</string>
+    <string name="desc_logo">LOGO</string>
+    <string name="hint_user">User</string>
+    <string name="hint_country">Country</string>
+    <string name="hint_position">position</string>
+    <string name="hint_points">points</string>
+    <string name="label_title_winners">Copas do mundo vencidas</string>
+    <string name="hint_rank_winner">0°</string>
+    <string name="label_title_disputed">Copas do mundo Disputadas</string>
+    <string name="hint_rank_disputed">0°</string>
 </resources>
