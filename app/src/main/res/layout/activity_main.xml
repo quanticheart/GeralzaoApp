@@ -35,99 +35,107 @@
   ~  */
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="40dp"
-    tools:context=".MainActivity"
-    tools:ignore="UseCompoundDrawables">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:contentDescription="@string/desc_logo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/hint_user"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/hint_country"
-        android:textSize="15sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/hint_position"
-        android:textSize="15sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/hint_points"
-        android:textSize="15sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="5dp"
-        android:text="@string/label_title_winners"
-        android:textSize="15sp" />
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/containerManagerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="40dp">
 
-        <SeekBar
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/soccerImg"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:contentDescription="@string/desc_logo" />
 
         <TextView
+            android:id="@+id/soccerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/hint_user"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/soccerCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/hint_country"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/soccerPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/hint_position"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/soccerPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/hint_points"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:text="@string/label_title_winners"
+            android:textSize="15sp" />
+
+
+        <RatingBar
+            android:id="@+id/soccerRatingWinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/google_app_yellow"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="3"
+            android:stepSize="0.5"
+            android:theme="@style/app_RatingBar" />
+
+        <TextView
+            android:id="@+id/soccerRatingWinnerPosition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@string/hint_rank_winner"
             android:textSize="15sp" />
 
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="5dp"
-        android:text="@string/label_title_disputed"
-        android:textSize="15sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <SeekBar
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:text="@string/label_title_disputed"
+            android:textSize="15sp" />
+
+        <RatingBar
+            android:id="@+id/soccerRatingDisputed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/google_app_yellow"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="3"
+            android:stepSize="0.5"
+            android:theme="@style/app_RatingBar" />
 
         <TextView
+            android:id="@+id/soccerRatingDisputedPosition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -136,4 +144,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

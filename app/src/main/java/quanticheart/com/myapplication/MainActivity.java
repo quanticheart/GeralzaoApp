@@ -39,20 +39,67 @@ package quanticheart.com.myapplication;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 import maripoppis.com.connection.Connect;
+import maripoppis.com.connection.Model.Object;
+import maripoppis.com.connection.Model.Player;
 import maripoppis.com.connection.Model.WSResponse;
 import quanticheart.com.baseproject.BaseProject.BaseActivity;
+import quanticheart.com.baseproject.Utils.GlideUtil;
 
 public class MainActivity extends BaseActivity implements Connect.ConnectCallback,
         BaseActivity.BaseConectionStatusCallback, BaseActivity.BaseRefreshInterface {
 
+    //LinearLayout
+    @BindView(R.id.containerManagerLayout)
+    LinearLayout containerManagerLayout;
+
+    //ImageView
+    @BindView(R.id.soccerImg)
+    CircleImageView soccerImg;
+
+    //TextView
+    @BindView(R.id.soccerName)
+    TextView soccerName;
+
+    @BindView(R.id.soccerCountry)
+    TextView soccerCountry;
+
+    @BindView(R.id.soccerPosition)
+    TextView soccerPosition;
+
+    @BindView(R.id.soccerPoints)
+    TextView soccerPoints;
+
+    @BindView(R.id.soccerRatingWinnerPosition)
+    TextView soccerRatingWinnerPosition;
+
+    @BindView(R.id.soccerRatingDisputedPosition)
+    TextView soccerRatingDisputedPosition;
+
+    //RatingBar
+    @BindView(R.id.soccerRatingWinner)
+    RatingBar soccerRatingWinner;
+
+    @BindView(R.id.soccerRatingDisputed)
+    RatingBar soccerRatingDisputed;
+
+    //Connection
     private Connect connect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setBaseContantView(R.layout.activity_main);
+
+        ButterKnife.bind(this);
 
         initInterface();
         initVars();
@@ -68,7 +115,8 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
     }
 
     private void initVars() {
-
+        soccerRatingDisputed.setEnabled(false);
+        soccerRatingWinner.setEnabled(false);
     }
 
     private void initActions() {
@@ -85,7 +133,31 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
     private void initConnection() {
         Connect.setCallback(this);
         connect = new Connect(activity);
+        getConnection();
+    }
+
+    private void getConnection() {
         connect.getDataFrom(Connect.ConnectionType.GET_JSON, false);
+    }
+
+    private void setDataInXml(WSResponse response) {
+
+        Player player = response.getObject().get(0).getPlayer();
+        containerManagerLayout.setVisibility(View.VISIBLE);
+
+        GlideUtil.initGlide(activity, player.getImg(), soccerImg);
+
+
+//        soccerRatingWinner.setMax(player.getBarras().getCopasDoMundoVencidas().getMax());
+//        soccerRatingWinner.setRating(player.getBarras().getCopasDoMundoVencidas().getPla());
+
+//        soccerRatingDisputed.setMax(player.getBarras().getCopasDoMundoDisputadas().getMax());
+//        soccerRatingDisputed.setRating(player.getBarras().getCopasDoMundoDisputadas().getPla());
+
+    }
+
+    private void cleanContainer() {
+        containerManagerLayout.setVisibility(View.GONE);
     }
 
     //==============================================================================================
@@ -96,17 +168,26 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
 
     @Override
     public void ConnectionSuccess(WSResponse response, Connect.ConnectionType connectionTypeID) {
-        Log.w("TESTE", String.valueOf(response.getObject().get(0).getPlayer().getName()));
+
+        switch (connectionTypeID) {
+            case GET_JSON:
+                setDataInXml(response);
+                break;
+        }
     }
 
     @Override
     public void ConnectionError(int statusType, Connect.ConnectionType connectionTypeID) {
+        cleanContainer();
+        if (statusType == Connect.STATUS_FAIL) {
+            showSnackBar("Falha ao Conectar");
+        }
 
     }
 
     @Override
     public void ConnectionFail(Throwable t) {
-
+        showSnackBar(t.getMessage());
     }
 
     //==============================================================================================
