@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) Developed by John Alves at 2018/10/31.
+  -->
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:title="Configurações"
+            android:id="@+id/menu_settings">
+        </item>
+
+        <item
+            android:title="Sair"
+            android:id="@+id/menu_logoff">
+        </item>
+
+    </group>
+
+    <group
+        android:id="@+id/sub_menu_materias"
+        android:checkableBehavior="single"
+        android:title="Destaques">
+
+    </group>
+
+
+
+
+</menu>
+
+    <!--<item-->
+    <!--android:id="@+id/sub_menu_materias_item"-->
+    <!--&gt;-->
+
+    <!--<menu>-->
+
+    <!--<item-->
+    <!--android:title="@string/item_1"-->
+    <!--android:id="@+id/menu_item1">-->
+    <!--</item>-->
+
+    <!--<item-->
+    <!--android:title="@string/item_2"-->
+    <!--android:id="@+id/menu_item2">-->
+    <!--</item>-->
+
+    <!--<item-->
+    <!--android:title="@string/item_3"-->
+    <!--android:id="@+id/menu_item3">-->
+    <!--</item>-->
+
+    <!--<item-->
+    <!--android:title="@string/item_4"-->
+    <!--android:id="@+id/menu_item4">-->
+    <!--</item>-->
+
+
+
+    <!--</menu>-->
+
+    <!--</item>-->

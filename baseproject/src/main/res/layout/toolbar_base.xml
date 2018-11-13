@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /*
+  ~  *                                     /@
+  ~  *                      __        __   /\/
+  ~  *                     /==\      /  \_/\/
+  ~  *                   /======\    \/\__ \__
+  ~  *                 /==/\  /\==\    /\_|__ \
+  ~  *              /==/    ||    \=\ / / / /_/
+  ~  *            /=/    /\ || /\   \=\/ /
+  ~  *         /===/   /   \||/   \   \===\
+  ~  *       /===/   /_________________ \===\
+  ~  *    /====/   / |                /  \====\
+  ~  *  /====/   /   |  _________    /      \===\
+  ~  *  /==/   /     | /   /  \ / / /         /===/
+  ~  * |===| /       |/   /____/ / /         /===/
+  ~  *  \==\             /\   / / /          /===/
+  ~  *  \===\__    \    /  \ / / /   /      /===/   ____                    __  _         __  __                __
+  ~  *    \==\ \    \\ /____/   /_\ //     /===/   / __ \__  ______  ____ _/ /_(_)____   / / / /__  ____ ______/ /_
+  ~  *    \===\ \   \\\\\\\/   ///////     /===/  / / / / / / / __ \/ __ `/ __/ / ___/  / /_/ / _ \/ __ `/ ___/ __/
+  ~  *      \==\/     \\\\/ / //////       /==/  / /_/ / /_/ / / / / /_/ / /_/ / /__   / __  /  __/ /_/ / /  / /_
+  ~  *      \==\     _ \\/ / /////        |==/   \___\_\__,_/_/ /_/\__,_/\__/_/\___/  /_/ /_/\___/\__,_/_/   \__/
+  ~  *        \==\  / \ / / ///          /===/
+  ~  *        \==\ /   / / /________/    /==/
+  ~  *          \==\  /               | /==/
+  ~  *          \=\  /________________|/=/
+  ~  *            \==\     _____     /==/
+  ~  *           / \===\   \   /   /===/
+  ~  *          / / /\===\  \_/  /===/
+  ~  *         / / /   \====\ /====/
+  ~  *        / / /      \===|===/
+  ~  *        |/_/         \===/
+  ~  *                       =
+  ~  *
+  ~  * Copyright(c) Developed by John Alves at 2018/11/6 at 7:32:55 for quantic heart studios
+  ~  */
+  -->
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbarContainer"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="?attr/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/toolbarImg"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbarContainer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/toolbarText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/ColorSupremeWhite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/main_toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+
+
