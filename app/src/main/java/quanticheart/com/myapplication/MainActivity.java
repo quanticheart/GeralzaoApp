@@ -47,6 +47,8 @@ import quanticheart.com.baseproject.BaseProject.BaseActivity;
 public class MainActivity extends BaseActivity implements Connect.ConnectCallback,
         BaseActivity.BaseConectionStatusCallback, BaseActivity.BaseRefreshInterface {
 
+    private Connect connect;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,12 +57,14 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
         initInterface();
         initVars();
         initActions();
+        initConnection();
 
     }
 
     private void initInterface() {
         BaseActivity.setBaseConectionStatusCallback(this);
         BaseActivity.setBaseRefreshInterface(this);
+
     }
 
     private void initVars() {
@@ -74,13 +78,25 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
 
     //==============================================================================================
     //
+    // Conection's App
+    //
+    //==============================================================================================
+
+    private void initConnection() {
+        Connect.setCallback(this);
+        connect = new Connect(activity);
+        connect.getDataFrom(Connect.ConnectionType.GET_JSON, false);
+    }
+
+    //==============================================================================================
+    //
     // Conection's Interface
     //
     //==============================================================================================
 
     @Override
     public void ConnectionSuccess(WSResponse response, Connect.ConnectionType connectionTypeID) {
-        Log.w("TESTE", String.valueOf(response.getStatus()));
+        Log.w("TESTE", String.valueOf(response.getObject().get(0).getPlayer().getName()));
     }
 
     @Override
