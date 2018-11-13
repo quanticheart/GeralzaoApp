@@ -41,6 +41,7 @@
     android:id="@+id/toolbarContainer"
     android:layout_width="match_parent"
     android:layout_height="60dp"
+    android:visibility="gone"
     android:background="?attr/colorPrimary"
     android:fitsSystemWindows="true"
     android:translationZ="10dp">

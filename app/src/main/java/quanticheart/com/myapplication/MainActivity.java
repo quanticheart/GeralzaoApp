@@ -115,8 +115,8 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
     }
 
     private void initVars() {
-        soccerRatingDisputed.setEnabled(false);
-        soccerRatingWinner.setEnabled(false);
+//        soccerRatingDisputed.setEnabled(false);
+//        soccerRatingWinner.setEnabled(false);
     }
 
     private void initActions() {
@@ -218,6 +218,7 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
 
     @Override
     public void refreshInterface() {
+        getConnection();
         hideRefresh();
     }
 }

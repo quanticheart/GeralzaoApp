@@ -35,15 +35,15 @@
   ~  */
   -->
 
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/containerManagerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="40dp">
@@ -60,6 +60,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@string/hint_user"
+            android:textColor="@color/ColorSupremeWhite"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -69,6 +70,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@string/hint_country"
+            android:textColor="@color/ColorSupremeWhite"
             android:textSize="15sp" />
 
         <TextView
@@ -77,6 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@string/hint_position"
+            android:textColor="@color/ColorSupremeWhite"
             android:textSize="15sp" />
 
         <TextView
@@ -85,6 +88,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@string/hint_points"
+            android:textColor="@color/ColorSupremeWhite"
             android:textSize="15sp" />
 
         <TextView
@@ -93,19 +97,28 @@
             android:layout_marginTop="20dp"
             android:padding="5dp"
             android:text="@string/label_title_winners"
+            android:textColor="@color/ColorSupremeWhite"
             android:textSize="15sp" />
 
-
-        <RatingBar
-            android:id="@+id/soccerRatingWinner"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/google_app_yellow"
-            android:isIndicator="false"
-            android:numStars="5"
-            android:rating="3"
-            android:stepSize="0.5"
-            android:theme="@style/app_RatingBar" />
+            android:background="@drawable/ratingbar"
+            android:gravity="center">
+
+            <RatingBar
+                android:id="@+id/soccerRatingWinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/google_app_yellow"
+                android:clickable="false"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="0.5"
+                android:theme="@style/app_RatingBar" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/soccerRatingWinnerPosition"
@@ -113,7 +126,8 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@string/hint_rank_winner"
-            android:textSize="15sp" />
+            android:textColor="@color/ColorSupremeWhite"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -121,18 +135,29 @@
             android:layout_marginTop="20dp"
             android:padding="5dp"
             android:text="@string/label_title_disputed"
-            android:textSize="15sp" />
+            android:textColor="@color/ColorSupremeWhite"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-        <RatingBar
-            android:id="@+id/soccerRatingDisputed"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/google_app_yellow"
-            android:isIndicator="false"
-            android:numStars="5"
-            android:rating="3"
-            android:stepSize="0.5"
-            android:theme="@style/app_RatingBar" />
+            android:background="@drawable/ratingbar"
+            android:gravity="center">
+
+            <RatingBar
+                android:id="@+id/soccerRatingDisputed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/google_app_yellow"
+                android:clickable="false"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="0.5"
+                android:theme="@style/app_RatingBar" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/soccerRatingDisputedPosition"
@@ -140,8 +165,10 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="@string/hint_rank_disputed"
-            android:textSize="15sp" />
+            android:textColor="@color/ColorSupremeWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>
