@@ -154,13 +154,14 @@ public class MainActivity extends BaseActivity implements Connect.ConnectCallbac
         soccerPosition.setText(player.getPos());
         soccerPoints.setText(String.valueOf(player.getPercentual()));
 
+        //RatingBar
         soccerRatingWinner.setMax(player.getBarras().getCopasDoMundoVencidas().getMax().intValue());
         soccerRatingWinner.setRating(player.getBarras().getCopasDoMundoVencidas().getPla().floatValue());
-        soccerRatingWinnerPosition.setText(player.getBarras().getCopasDoMundoVencidas().getPos()+"°");
+        soccerRatingWinnerPosition.setText(ProjectUtils.getPosition(player.getBarras().getCopasDoMundoVencidas().getPos()));
 //
-//        soccerRatingDisputed.setMax(player.getBarras().getCopasDoMundoDisputadas().getMax());
-//        soccerRatingDisputed.setRating(player.getBarras().getCopasDoMundoDisputadas().getPla());
-//        soccerRatingDisputedPosition.setText(player.getBarras().getCopasDoMundoDisputadas().getPos()+"°");
+        soccerRatingDisputed.setMax(player.getBarras().getCopasDoMundoDisputadas().getMax().intValue());
+        soccerRatingDisputed.setRating(player.getBarras().getCopasDoMundoDisputadas().getPla().floatValue());
+        soccerRatingDisputedPosition.setText(ProjectUtils.getPosition(player.getBarras().getCopasDoMundoDisputadas().getPos()));
 
     }
 
